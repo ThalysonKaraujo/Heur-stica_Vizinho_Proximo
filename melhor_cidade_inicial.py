@@ -34,13 +34,14 @@ def vizinho_mais_proximo(pontos: List[tuple[int,int]]) -> str:
                 distancia_total_atual += menor_distancia
 
         distancia_total_atual += distancia_euclidiana(pontos[caminho_guloso[-1]], pontos[cidade_inicio])
+        caminho_guloso.append(cidade_inicio)
 
         if distancia_total_atual < menor_distancia_total:
             menor_distancia_total = distancia_total_atual
             melhor_cidade_inicial = cidade_inicio
             melhor_caminho = [i+1 for i in caminho_guloso]
 
-        caminho_guloso.append(cidade_inicio)
+        
 
     
     string_retorno = f'A melhor cidade inicial é: {melhor_cidade_inicial + 1}. Distância total: {menor_distancia_total :.4f} \nCaminho: {melhor_caminho}'
